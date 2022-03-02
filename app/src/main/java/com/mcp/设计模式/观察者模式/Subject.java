@@ -9,7 +9,7 @@ import java.util.Observer;
 /**
  * author : zhangyun.
  * date  : 2022/3/2  14:47.
- * description :
+ * description : 自定义负责管理观察者的类
  **/
 public abstract class Subject {
     /**
