@@ -1,4 +1,4 @@
 include ':app'
 rootProject.name = "HuaWeiPush"
-include ':mylibrary'
-include ':mylibraryutils'
+include ':common'
+include ':login'

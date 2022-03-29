@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <Button
+        android:id="@+id/btn_account"
+        android:text="账号密码登录"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="200dp"
+        android:layout_height="48dp"/>
+    <Button
+        android:id="@+id/btn_other"
+        android:text="第三方登录"
+        app:layout_constraintTop_toBottomOf="@+id/btn_account"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="200dp"
+        android:layout_height="48dp"/>
+
+    <Button
+        android:id="@+id/btn_face"
+        android:text="人脸登录"
+        app:layout_constraintTop_toBottomOf="@+id/btn_other"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="200dp"
+        android:layout_height="48dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,11 @@
         <entry key="app/src/main/res/layout/activity_second.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_view.xml" value="0.21014492753623187" />
         <entry key="app/src/main/res/layout/pull_header_view.xml" value="0.21014492753623187" />
+        <entry key="login/src/main/res/drawable/ic_launcher_background.xml" value="0.20092592592592592" />
+        <entry key="login/src/main/res/layout-w936dp/activity_login.xml" value="0.125390625" />
+        <entry key="login/src/main/res/layout/activity_login.xml" value="0.17391304347826086" />
+        <entry key="login/src/main/res/layout/activity_main.xml" value="0.1671875" />
+        <entry key="login/src/main/res/layout/activity_main2.xml" value="0.20199275362318841" />
       </map>
     </option>
   </component>
