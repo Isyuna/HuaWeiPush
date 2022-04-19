@@ -1,4 +1,4 @@
-package com.mcp.huaweipush;
+package com.mcp.zhyproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.Placeholder;

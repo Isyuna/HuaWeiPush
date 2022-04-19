@@ -33,7 +33,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_width="100dp"
         android:layout_height="60dp"/>
-    <com.mcp.huaweipush.view.AdHelper
+    <com.mcp.zhyproject.view.AdHelper
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:constraint_referenced_ids="ivLogo"

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mcp.huaweipush">
+    package="com.mcp.zhyproject">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -17,13 +17,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HuaWeiPush">
         <activity
-            android:name=".MyRecyclerViewActivity"
+            android:name="com.mcp.zhyproject.MyRecyclerViewActivity"
             android:exported="false" />
         <activity
-            android:name=".ConstraintLayoutViewActivity"
+            android:name="com.mcp.zhyproject.ConstraintLayoutViewActivity"
             android:exported="false" />
-        <activity android:name=".SecondActivity" />
-        <activity android:name=".MainActivity"
+        <activity android:name="com.mcp.zhyproject.SecondActivity" />
+        <activity android:name="com.mcp.zhyproject.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

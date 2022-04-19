@@ -1,4 +1,4 @@
-package com.mcp.huaweipush;
+package com.mcp.zhyproject;
 
 import org.junit.Test;
 

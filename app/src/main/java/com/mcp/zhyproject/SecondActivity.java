@@ -1,10 +1,9 @@
-package com.mcp.huaweipush;
+package com.mcp.zhyproject;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
-import android.view.View;
 import android.widget.Button;
 import android.widget.Switch;
 import android.widget.TextView;

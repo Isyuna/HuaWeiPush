@@ -1,4 +1,4 @@
-package com.mcp.huaweipush;
+package com.mcp.zhyproject;
 
 import android.view.LayoutInflater;
 import android.view.View;

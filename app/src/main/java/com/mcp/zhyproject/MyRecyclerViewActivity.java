@@ -1,4 +1,4 @@
-package com.mcp.huaweipush;
+package com.mcp.zhyproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -6,12 +6,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
 
-import com.mcp.huaweipush.R;
-import com.mcp.huaweipush.ZYRecyclerView.ZYRecyclerView;
+import com.mcp.zhyproject.R;
+import com.mcp.zhyproject.ZYRecyclerView.ZYRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;

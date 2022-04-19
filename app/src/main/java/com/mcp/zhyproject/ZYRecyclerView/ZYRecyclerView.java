@@ -1,4 +1,4 @@
-package com.mcp.huaweipush.ZYRecyclerView;
+package com.mcp.zhyproject.ZYRecyclerView;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -7,16 +7,14 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.mcp.huaweipush.R;
+import com.mcp.zhyproject.R;
 
 /**
  * author : zhangyun.

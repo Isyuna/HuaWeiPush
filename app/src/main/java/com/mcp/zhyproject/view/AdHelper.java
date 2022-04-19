@@ -1,11 +1,10 @@
-package com.mcp.huaweipush.view;
+package com.mcp.zhyproject.view;
 
 import android.animation.Animator;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewAnimationUtils;
-import android.view.animation.Animation;
 
 import androidx.constraintlayout.widget.ConstraintHelper;
 import androidx.constraintlayout.widget.ConstraintLayout;
