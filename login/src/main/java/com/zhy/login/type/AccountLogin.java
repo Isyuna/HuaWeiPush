@@ -1,4 +1,4 @@
-package com.zhy.login;
+package com.zhy.login.type;
 
 /**
  * author : zhangyun.
@@ -7,7 +7,7 @@ package com.zhy.login;
  **/
 public class AccountLogin extends Login{
     @Override
-    protected void login(String account, String password, LoginCallBack loginCallBack) {
+    public void login(String account, String password, LoginCallBack loginCallBack) {
         loginCallBack.success("登录成功");
     }
 }

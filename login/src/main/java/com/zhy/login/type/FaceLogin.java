@@ -1,4 +1,4 @@
-package com.zhy.login;
+package com.zhy.login.type;
 
 /**
  * author : zhangyun.
@@ -6,8 +6,9 @@ package com.zhy.login;
  * description :
  **/
 public class FaceLogin extends Login{
+
     @Override
-    protected void loginByFace(String image, LoginByFaceCallBack loginByFaceCallBack) {
+    public void loginByFace(String image, LoginByFaceCallBack loginByFaceCallBack) {
         login("account", "password", new LoginCallBack() {
             @Override
             public void success(String data) {

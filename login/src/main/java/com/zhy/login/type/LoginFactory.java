@@ -1,4 +1,4 @@
-package com.zhy.login;
+package com.zhy.login.type;
 
 /**
  * author : zhangyun.

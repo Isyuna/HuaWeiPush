@@ -6,6 +6,7 @@ buildscript {
         navigationVersion = "2.3.5"
         retrofitVersion = "2.9.0"
         okHttpVersion = "4.9.1"
+        nav_version = "2.4.1"
     }
     repositories {
         google()
@@ -14,7 +15,7 @@ buildscript {
         maven {url 'https://developer.huawei.com/repo/'}
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:4.1.2"
+        classpath "com.android.tools.build:gradle:4.1.3"
     }
 }
 

@@ -47,8 +47,19 @@ dependencies {
     api "androidx.navigation:navigation-runtime:$navigationVersion"
     api 'io.reactivex.rxjava3:rxjava:3.0.0'
     api 'io.reactivex.rxjava3:rxandroid:3.0.0'
-    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
-    implementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
+    api "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    api "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    api "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+    api "com.squareup.okhttp3:okhttp:$okHttpVersion"
+    // Java language implementation
+    api "androidx.navigation:navigation-fragment:$nav_version"
+    api "androidx.navigation:navigation-ui:$nav_version"
+    // Feature module Support
+    api "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
+    // Testing Navigation
+    androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
+
+    // Jetpack Compose Integration
+    api "androidx.navigation:navigation-compose:$nav_version"
+    api 'com.google.zxing:core:3.3.0'
 }
