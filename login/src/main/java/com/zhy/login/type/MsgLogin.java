@@ -1,5 +1,9 @@
 package com.zhy.login.type;
 
+import androidx.lifecycle.LiveData;
+
+import com.zhy.common.net.ApiResponse;
+import com.zhy.common.net.BingImg;
 import com.zhy.login.type.Login;
 import com.zhy.login.type.LoginCallBack;
 
@@ -9,6 +13,11 @@ import com.zhy.login.type.LoginCallBack;
  * description : 模拟验证码登录
  **/
 public class MsgLogin extends Login {
+    @Override
+    public LiveData<BingImg> login(String account, String password) {
+        return null;
+    }
+
     @Override
     public void loginByMsg(String msg, LoginCallBack loginCallBack) {
         super.loginByMsg(msg, loginCallBack);

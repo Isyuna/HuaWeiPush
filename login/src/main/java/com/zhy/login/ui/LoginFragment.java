@@ -1,14 +1,20 @@
 package com.zhy.login.ui;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 /**
  * 开发缺少全面自测，像我写的问题基本上都是对应的需求写完了
@@ -19,8 +25,10 @@ import androidx.lifecycle.Observer;
  *
  *
  */
+import com.google.android.material.snackbar.Snackbar;
 import com.zhy.common.base.BaseFragment;
 import com.zhy.common.base.DataBindingConfig;
+import com.zhy.common.net.BingImg;
 import com.zhy.common.utils.ToastUtil;
 import com.zhy.login.BR;
 import com.zhy.login.LoginViewModel;
@@ -34,16 +42,22 @@ import com.zhy.login.type.LoginType;
 
 import java.util.Objects;
 
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.core.ObservableEmitter;
+import io.reactivex.rxjava3.core.ObservableOnSubscribe;
+
 
 public class LoginFragment extends BaseFragment {
 
 
     private LoginViewModel mState;
-    private LoginFactory factory = new LoginFactory();
     FragmentLoginBinding loginBinding;
+
     @Override
     protected void initViewModel() {
         mState = initViewModelProvider(LoginViewModel.class);
+        mState.user.set(new User("ZY", "18"));
+
     }
 
     @Override
@@ -55,8 +69,7 @@ public class LoginFragment extends BaseFragment {
 
     @Override
     protected void initViews(View view) {
-         loginBinding = (FragmentLoginBinding) mBinding;
-        mState.user.set(new User("ZY","18"));
+        loginBinding = (FragmentLoginBinding) mBinding;
         mBinding.setLifecycleOwner(this);
 
         // Create the observer which updates the UI.
@@ -73,48 +86,20 @@ public class LoginFragment extends BaseFragment {
     }
 
     /**
-     *
      * 监听器绑定
      * 在方法引用中，方法的参数必须与事件监听器的参数匹配。在监听器绑定中，
      * 只有您的返回值必须与监听器的预期返回值相匹配（预期返回值无效除外）
      */
     public class LoginClick {
         public void loginByAccount() {
-            mState.getCurrentName().setValue("你好");
+            mState.loginByAccount(getActivity());
 
-            factory.createLogin(LoginType.ACCOUNT)
-                    .login("account", "password",
-                            new LoginCallBack() {
-                                @Override
-                                public void success(String data) {
-
-                                }
-
-                                @Override
-                                public void error(String error) {
-
-                                }
-                            });
-        }
-
-        public void loginByFace() {
-            factory.createLogin(LoginType.FACE)
-                    .loginByFace("image", new LoginByFaceCallBack() {
-                        @Override
-                        public void success(String data) {
-
-                        }
-
-                        @Override
-                        public void error(String error) {
-
-                        }
-                    });
         }
 
         public void toSetting() {
             nav().navigate(R.id.to_setting);
         }
+
         public void toText() {
             nav().navigate(R.id.action_LoginFragment_to_lifecycleFragment);
         }

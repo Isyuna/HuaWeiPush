@@ -54,4 +54,6 @@ dependencies {
 //
     implementation project(path: ':common')
     implementation project(path: ':login')
+//    implementation 'com.yanzhenjie.permission:support:2.0.1'
+//    implementation 'com.yhd.hdmediaplayer:hdmediaplayer:1.0.1'
 }
