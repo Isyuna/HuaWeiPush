@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.laozhang.camera.CameraMainActivity;
 import com.zhy.common.utils.QRCodeUtil;
 import com.zhy.login.LoginMainActivity;
 
@@ -65,11 +66,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-//        findViewById(R.id.btn2).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//            }
-//        });
+        findViewById(R.id.to_camerax).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, CameraMainActivity.class));
+
+            }
+        });
 
 
         //创建基本线程池

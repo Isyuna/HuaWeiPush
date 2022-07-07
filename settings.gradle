@@ -2,3 +2,5 @@ include ':app'
 rootProject.name = "HuaWeiPush"
 include ':common'
 include ':login'
+include ':camera'
+include ':project'

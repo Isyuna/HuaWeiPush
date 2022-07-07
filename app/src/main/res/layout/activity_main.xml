@@ -61,6 +61,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
     </Button>
+    <Button
+        android:id="@+id/to_camerax"
+        android:text="CameraX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </Button>
     <ImageView
         android:id="@+id/image_view"
         android:layout_width="400dp"

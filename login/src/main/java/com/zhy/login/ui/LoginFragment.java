@@ -1,20 +1,9 @@
 package com.zhy.login.ui;
 
 
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.provider.Settings;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
+import android.view.View;
 import androidx.annotation.Nullable;
-import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 /**
  * 开发缺少全面自测，像我写的问题基本上都是对应的需求写完了
@@ -25,26 +14,15 @@ import androidx.lifecycle.Observer;
  *
  *
  */
-import com.google.android.material.snackbar.Snackbar;
 import com.zhy.common.base.BaseFragment;
 import com.zhy.common.base.DataBindingConfig;
-import com.zhy.common.net.BingImg;
 import com.zhy.common.utils.ToastUtil;
 import com.zhy.login.BR;
 import com.zhy.login.LoginViewModel;
 import com.zhy.login.R;
 import com.zhy.login.User;
 import com.zhy.login.databinding.FragmentLoginBinding;
-import com.zhy.login.type.LoginByFaceCallBack;
-import com.zhy.login.type.LoginCallBack;
-import com.zhy.login.type.LoginFactory;
-import com.zhy.login.type.LoginType;
 
-import java.util.Objects;
-
-import io.reactivex.rxjava3.core.Observable;
-import io.reactivex.rxjava3.core.ObservableEmitter;
-import io.reactivex.rxjava3.core.ObservableOnSubscribe;
 
 
 public class LoginFragment extends BaseFragment {
