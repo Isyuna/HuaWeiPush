@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.laozhang.project.R;
 import com.laozhang.project.databinding.ItemFollowBinding;
+import com.laozhang.project.databinding.ItemRecommendBinding;
 import com.laozhang.project.main.model.ConsumerModel;
 import com.zhy.common.base.SimpleDataBindingAdapter;
 

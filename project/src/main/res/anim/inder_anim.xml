@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+<!--    android:pivotX：item的动画中心轴位置，50%为中心-->
+<!--    android:pivotY：item的动画中心轴位置，50%为中心-->
+<!--    android:fromXScale：item开始时的尺寸，范围0~1-->
+<!--    android:fromYScale：item开始时的尺寸，范围0~1-->
+<!--    android:toXScale：item结束时的尺寸，范围0~1-->
+<!--    android:toYScale：item结束时的尺寸，范围0~1-->
+<!--    android:duration：动画持续时间，单位毫秒-->
+    <scale
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:fromXScale="0"
+        android:fromYScale="0"
+        android:toXScale="1"
+        android:toYScale="1"
+        android:duration="500" />
+
+</set>

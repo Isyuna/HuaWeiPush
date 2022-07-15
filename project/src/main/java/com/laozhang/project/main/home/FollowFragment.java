@@ -2,6 +2,9 @@ package com.laozhang.project.main.home;
 
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
@@ -55,17 +58,26 @@ public class FollowFragment extends BaseFragment {
     protected void initViews(View view) {
         mBinding.setLifecycleOwner(this);
         binding = (FragmentFollowBinding) mBinding;
+        refreshData();
+        initAnimation();
         binding.followRv.setAdapter(mAdapter);
         binding.followRv.setLayoutManager(new LinearLayoutManager(getActivity()));
-        refreshData();
         mAdapter.setOnItemClickListener((viewId, item, position) -> {
 
         });
         binding.animationView.pauseAnimation();
         binding.swipeRefresh.setOnRefreshListener(this::refreshData);
         binding.toRefresh.setOnClickListener(v -> refreshData());
+
     }
 
+    private void initAnimation() {
+        Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.inder_anim);
+        LayoutAnimationController layoutAnimationController = new LayoutAnimationController(animation);
+        layoutAnimationController.setOrder(LayoutAnimationController.ORDER_NORMAL);
+        layoutAnimationController.setDelay(0.2f);
+        binding.toRefresh.setLayoutAnimation(layoutAnimationController);
+    }
     private void refreshData() {
         binding.animationView.playAnimation();
         followViewModel.followRequest.getConsumerList().observe(this, listApiResponse -> {

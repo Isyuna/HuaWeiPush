@@ -1,6 +1,9 @@
 package com.laozhang.project.main.home;
 
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -47,10 +50,11 @@ public class ArticleFragment extends BaseFragment {
     protected void initViews(View view) {
         mBinding.setLifecycleOwner(this);
         binding = (FragmentArticleBinding) mBinding;
+        initAnimation();
+        refreshData();
         binding.reView.setAdapter(mAdapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         binding.reView.setLayoutManager(linearLayoutManager);
-        refreshData();
 
         viewModel.request.consumers.observe(getActivity(), new Observer<List<RecommendModel>>() {
             @Override
@@ -63,11 +67,25 @@ public class ArticleFragment extends BaseFragment {
             public void onLoadMore(int current_page) {
                 loadData();
             }
+
+            @Override
+            public void onScrollStateChanged(int firstVisibleItem, int lastVisibleItem, int totalItemCount) {
+
+            }
         };
         binding.reView.addOnScrollListener(listener);
 
 
         binding.swLayout.setOnRefreshListener(this::refreshData);
+
+    }
+
+    private void initAnimation() {
+        Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.inder_anim);
+        LayoutAnimationController layoutAnimationController = new LayoutAnimationController(animation);
+        layoutAnimationController.setOrder(LayoutAnimationController.ORDER_NORMAL);
+        layoutAnimationController.setDelay(0.2f);
+        binding.reView.setLayoutAnimation(layoutAnimationController);
     }
 
     private void refreshData() {

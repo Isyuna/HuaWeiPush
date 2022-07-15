@@ -33,7 +33,7 @@ import java.util.List;
  * description :
  **/
 public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    public final String TAG = RecommendAdapter.class.getSimpleName();
+    public static final String TAG = RecommendAdapter.class.getSimpleName();
 
     //文章
     private final int ITEM_ARTICLE = 1;
@@ -51,12 +51,12 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     private DiffUtil.ItemCallback<RecommendModel> diffCallback = new DiffUtil.ItemCallback<RecommendModel>() {
         @Override
         public boolean areItemsTheSame(RecommendModel oldItem, RecommendModel newItem) {
-            return TextUtils.equals(oldItem.joke.jokesId+"", newItem.joke.jokesId+"");
+            return oldItem.equals(newItem);
         }
 
         @Override
         public boolean areContentsTheSame(RecommendModel oldItem, RecommendModel newItem) {
-            return oldItem.user.userId == newItem.user.userId;
+            return oldItem.joke.jokesId == newItem.joke.jokesId;
         }
     };
 
@@ -166,8 +166,6 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         }
         String url = getUrl(getItem(position).joke.videoUrl);
         String imageUrl = getUrl(getItem(position).joke.thumbUrl);
-
-
         mBinding.voidPlayer.loadCoverImage(imageUrl, R.mipmap.like);
         mBinding.voidPlayer.setUpLazy(url, true, null, null, "这是title");
         //增加title

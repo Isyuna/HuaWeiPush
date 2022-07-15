@@ -34,9 +34,11 @@ public abstract class EndlessLinearOnScrollListener extends RecyclerView.OnScrol
         if((totalItemCount - lastVisibleItem ) < 3){
             onLoadMore(current_page);
         }
+        onScrollStateChanged(firstVisibleItem,lastVisibleItem,totalItemCount);
     }
 
     public abstract void onLoadMore(int current_page);
+    public abstract void onScrollStateChanged(int firstVisibleItem,int lastVisibleItem,int totalItemCount);
 
     //重置
     public void reset() {
