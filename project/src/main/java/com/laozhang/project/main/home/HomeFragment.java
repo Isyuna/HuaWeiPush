@@ -49,10 +49,10 @@ public class HomeFragment extends BaseFragment {
         initFragment.clear();
         tittles.clear();
         initFragment.add(new FollowFragment());
-        initFragment.add(new FollowFragment());
-        initFragment.add(new FollowFragment());
-        initFragment.add(new FollowFragment());
-        initFragment.add(new FollowFragment());
+        initFragment.add(new RecommendFragment());
+        initFragment.add(new RecommendFragment());
+        initFragment.add(new ArticleFragment());
+        initFragment.add(new RecommendFragment());
 
         tittles.add("关注");
         tittles.add("推荐");

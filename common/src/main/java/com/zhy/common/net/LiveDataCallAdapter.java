@@ -77,8 +77,6 @@ public class LiveDataCallAdapter<T> implements CallAdapter<T, LiveData<T>> {
                     @Override
                     public void onResponse(@NonNull Call<T> call, @NonNull Response<T> response) {
                         T body = response.body();
-                        BingImg apiResponse = (BingImg) body;
-                        Log.d("sss",apiResponse.getImgUrl());
                         postValue(body);
                     }
 

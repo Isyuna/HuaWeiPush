@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.laozhang.project.main.model.ConsumerModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+        <com.zhy.common.view.XCRoundImageView
+            android:id="@+id/image"
+            imageUrl="@{item.avatar}"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="@{item.nickname}"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@id/image"
+            app:layout_constraintTop_toTopOf="@id/image" />
+
+        <TextView
+            android:textColor="@color/gry_text"
+            android:id="@+id/tv_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            jokesText="@{item.jokesNum}"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/image"
+            app:layout_constraintLeft_toRightOf="@id/image" />
+        <TextView
+            android:textColor="@color/gry_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            fansText="@{item.fansNum}"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/image"
+            app:layout_constraintLeft_toRightOf="@id/tv_num" />
+        <TextView
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:background="@drawable/item_follow_bg"
+            android:textColor="@color/theme"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="+ 关注"
+            android:layout_width="65dp"
+            android:layout_height="30dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

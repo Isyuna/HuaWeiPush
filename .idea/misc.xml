@@ -31,10 +31,20 @@
         <entry key="login/src/main/res/layout/fragment_lifecycle.xml" value="0.2028985507246377" />
         <entry key="login/src/main/res/layout/fragment_login.xml" value="0.19063808005207994" />
         <entry key="login/src/main/res/layout/fragment_setting.xml" value="0.16847826086956522" />
+        <entry key="project/src/main/res/drawable/item_follow_bg.xml" value="0.26296296296296295" />
         <entry key="project/src/main/res/layout/activity_project_main.xml" value="0.28125" />
+        <entry key="project/src/main/res/layout/fragment_article.xml" value="0.30434782608695654" />
         <entry key="project/src/main/res/layout/fragment_follow.xml" value="0.3070652173913043" />
         <entry key="project/src/main/res/layout/fragment_home.xml" value="0.29936594202898553" />
+        <entry key="project/src/main/res/layout/fragment_recommend.xml" value="0.2971014492753623" />
+        <entry key="project/src/main/res/layout/item_follow.xml" value="0.2971014492753623" />
+        <entry key="project/src/main/res/layout/item_recommend.xml" value="0.2971014492753623" />
+        <entry key="project/src/main/res/layout/item_recommend_article.xml" value="0.27473388742701305" />
+        <entry key="project/src/main/res/layout/item_recommend_image.xml" value="0.30434782608695654" />
+        <entry key="project/src/main/res/layout/item_recommend_video.xml" value="0.30434782608695654" />
+        <entry key="project/src/main/res/layout/video_layout_cover.xml" value="0.29936594202898553" />
         <entry key="project/src/main/res/menu/main_menu.xml" value="0.3098958333333333" />
+        <entry key="project/src/main/res/xml/network_config.xml" value="0.2971014492753623" />
       </map>
     </option>
   </component>

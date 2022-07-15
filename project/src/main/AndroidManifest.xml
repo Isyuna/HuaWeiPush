@@ -1,16 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.laozhang.project">
-
+    <!--存储权限-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
+        tools:ignore="ProtectedPermissions" />
+    <!--手机权限-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
+    <!--允许应用程序添加系统中的语音邮件-->
+    <!--<uses-permission android:name="android.permission.ADD_VOICEMAIL" />-->
+    <uses-permission android:name="android.permission.USE_SIP" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
+    <uses-permission android:name="android.permission.ANSWER_PHONE_CALLS" />
+    <!--录音权限-->
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <!--修改声音设置-->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <!--开机启动-->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
+        android:name=".MainApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:networkSecurityConfig="@xml/network_config"
         android:theme="@style/Theme.HuaWeiPush">
         <activity
             android:name=".ProjectMainActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

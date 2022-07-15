@@ -29,6 +29,11 @@ android {
         dataBinding true
         viewBinding true
     }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
 }
 
 dependencies {
@@ -38,8 +43,12 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.navigation:navigation-fragment:2.4.2'
     implementation 'androidx.navigation:navigation-ui:2.4.2'
+    implementation 'com.google.firebase:firebase-crashlytics-buildtools:2.9.1'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation project(path: ':common')
+    implementation "com.github.CarGuo.GSYVideoPlayer:gsyVideoPlayer:8.1.5-jitpack"
+
+
 }

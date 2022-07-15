@@ -13,16 +13,59 @@
         <variable
             name="isLoading"
             type="boolean" />
+        <variable
+            name="adapter"
+            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <TextView
-            android:gravity="center"
-            android:text="follow fragment"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:shadowColor="@color/theme"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="wrap_content">
+           <LinearLayout
+               android:orientation="vertical"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent">
+               <androidx.recyclerview.widget.RecyclerView
+                   android:id="@+id/follow_rv"
+                   android:clipToPadding="false"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"/>
+              <LinearLayout
+                  android:padding="20dp"
+                  android:id="@+id/to_refresh"
+                  android:gravity="center"
+                  android:orientation="horizontal"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content">
+                  <com.airbnb.lottie.LottieAnimationView
+                      android:id="@+id/animation_view"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      app:lottie_fileName="follow.json"
+                      app:lottie_loop="true"
+                      app:lottie_autoPlay="true"/>
+                  <TextView
+                      android:layout_marginLeft="15dp"
+                      android:textColor="@color/gry_text"
+                      app:layout_constraintTop_toBottomOf="@+id/follow_rv"
+                      app:layout_constraintLeft_toLeftOf="parent"
+                      app:layout_constraintRight_toRightOf="parent"
+                      android:text="点我换一批哦！"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"/>
+              </LinearLayout>
+           </LinearLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
