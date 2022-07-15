@@ -50,7 +50,7 @@ public class HomeFragment extends BaseFragment {
         tittles.clear();
         initFragment.add(new FollowFragment());
         initFragment.add(new RecommendFragment());
-        initFragment.add(new RecommendFragment());
+        initFragment.add(new FreshFragment());
         initFragment.add(new ArticleFragment());
         initFragment.add(new RecommendFragment());
 

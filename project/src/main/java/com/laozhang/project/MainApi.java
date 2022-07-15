@@ -27,4 +27,7 @@ public interface MainApi {
 
     @POST("home/text")
     LiveData<ApiResponse<List<RecommendModel>>> getRecommendText();
+
+    @POST("douyin/list")
+    LiveData<ApiResponse<List<RecommendModel>>> getRecommendFresh();
 }

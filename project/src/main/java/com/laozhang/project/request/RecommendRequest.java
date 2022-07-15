@@ -23,4 +23,10 @@ public class RecommendRequest {
     public LiveData<ApiResponse<List<RecommendModel>>> getConsumerList(){
         return RetrofitManager.getInstance().create(MainApi.class).getRecommend();
     }
+    public LiveData<ApiResponse<List<RecommendModel>>> getRecommendText(){
+        return RetrofitManager.getInstance().create(MainApi.class).getRecommendText();
+    }
+    public LiveData<ApiResponse<List<RecommendModel>>> getRecommendFresh(){
+        return RetrofitManager.getInstance().create(MainApi.class).getRecommendFresh();
+    }
 }

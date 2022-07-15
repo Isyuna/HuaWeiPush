@@ -14,29 +14,27 @@ import java.util.List;
 
 /**
  * author : zhangyun.
- * date  : 2022/7/14  10:52.
+ * date  : 2022/7/15  11:21.
  * description :
  **/
-public class ArticleViewModel extends AndroidViewModel {
-    public ArticleViewModel(@NonNull Application application) {
+public class FreshFragmentViewModel extends AndroidViewModel {
+
+    public RecommendRequest request = new RecommendRequest();
+
+    public FreshFragmentViewModel(@NonNull Application application) {
         super(application);
     }
-    public RecommendRequest request = new RecommendRequest();
 
 
     //刷新数据
     public LiveData<ApiResponse<List<RecommendModel>>> refreshData() {
-        return  request.getRecommendText();
+        return  request.getRecommendFresh();
 
     }
 
     //加载数据
     public LiveData<ApiResponse<List<RecommendModel>>> loadData() {
-        return request.getRecommendText();
+        return request.getRecommendFresh();
     }
 
-    //获取数据库数据
-    public void getDbData() {
-
-    }
 }
