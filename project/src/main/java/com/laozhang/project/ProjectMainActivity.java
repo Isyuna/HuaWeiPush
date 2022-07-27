@@ -10,6 +10,8 @@ import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
 
 import com.laozhang.project.main.home.HomeFragment;
+import com.laozhang.project.main.video.VideoFragment;
+import com.laozhang.project.utils.ViewPagerWithLimit;
 import com.zhy.common.tablayout.CommonTabLayout;
 import com.zhy.common.tablayout.entity.TabEntity;
 import com.zhy.common.tablayout.listener.CustomTabEntity;
@@ -20,7 +22,7 @@ import java.util.ArrayList;
 public class ProjectMainActivity extends AppCompatActivity {
 
     CommonTabLayout slidingTabLayout;
-    ViewPager viewPager;
+    ViewPagerWithLimit viewPager;
     private ArrayList<Fragment> mFragments = new ArrayList<>();
     private String[] mTitles = {"首页", "划一划", "添加", "消息", "我的"};
 
@@ -48,11 +50,12 @@ public class ProjectMainActivity extends AppCompatActivity {
             mTabEntities.add(new TabEntity(mTitles[i], mIconUnselectIds[i], mIconUnselectIds[i]));
         }
         mFragments.add(new HomeFragment());
-        mFragments.add(new HomeFragment());
+        mFragments.add(new VideoFragment());
         mFragments.add(new HomeFragment());
         mFragments.add(new HomeFragment());
         adapter = new MainAdapter(getSupportFragmentManager(), 0);
         viewPager.setAdapter(adapter);
+        viewPager.setOffscreenPageLimit(0);
         slidingTabLayout.setTabData(mTabEntities);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override

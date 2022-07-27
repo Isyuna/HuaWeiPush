@@ -19,16 +19,18 @@ import com.zhy.common.view.XCRoundImageView;
  **/
 public class ProjectBindingAdapter {
 
-    @BindingAdapter(value = { "videoUrl","voidImage"}, requireAll = false)
-    public static void fansTextView(ZYVideoPlayer zyVideoPlayer, String videoUrl, String videoImage) {
-        initVideoPlayer(zyVideoPlayer,videoUrl,videoImage);
-        
+    @BindingAdapter(value = { "videoUrl","voidImage","position","videoTag"}, requireAll = false)
+    public static void fansTextView(ZYVideoPlayer zyVideoPlayer, String videoUrl,
+                                    String videoImage,  int position,String videoTag ) {
+        initVideoPlayer(zyVideoPlayer,videoUrl,videoImage,position,videoTag);
+
     }
     /**
      * 处理视频播放
      *
      */
-    private static void initVideoPlayer(ZYVideoPlayer zyVideoPlayer, String videoUrl, String videoImage) {
+    private static void initVideoPlayer(ZYVideoPlayer zyVideoPlayer, String videoUrl, String videoImage,
+                                        int position, String tag) {
         if (videoUrl == null || "".equals(videoUrl)) {
             zyVideoPlayer.setVisibility(View.GONE);
             return;
@@ -51,9 +53,7 @@ public class ProjectBindingAdapter {
                 zyVideoPlayer.startWindowFullscreen(zyVideoPlayer.getContext(), false, true);
             }
         });
-        //防止错位设置
-        zyVideoPlayer.setPlayTag("RecommendAdapter");
-//        zyVideoPlayer.setPlayPosition(ge);
+        zyVideoPlayer.setPlayPosition(position);
         //是否根据视频尺寸，自动选择竖屏全屏或者横屏全屏
         zyVideoPlayer.setAutoFullWithSize(true);
         //音频焦点冲突时是否释放

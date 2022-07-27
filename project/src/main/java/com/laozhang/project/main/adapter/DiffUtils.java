@@ -19,6 +19,7 @@ package com.laozhang.project.main.adapter;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 
+import com.laozhang.project.main.model.CommentModel;
 import com.laozhang.project.main.model.ConsumerModel;
 import com.laozhang.project.main.model.RecommendModel;
 
@@ -30,6 +31,8 @@ public class DiffUtils {
 
     private DiffUtil.ItemCallback<ConsumerModel> mTestMusicItemCallback;
     private DiffUtil.ItemCallback<RecommendModel> mTestRecommendItemCallback;
+    private DiffUtil.ItemCallback<String> mTestStringItemCallback;
+    private DiffUtil.ItemCallback<CommentModel> mCommentModelItemCallback;
 
     private DiffUtils() {
     }
@@ -73,6 +76,38 @@ public class DiffUtils {
             };
         }
         return mTestRecommendItemCallback;
+    }
+    public DiffUtil.ItemCallback<String> getStringItemCallback() {
+        if (mTestStringItemCallback == null) {
+            mTestStringItemCallback = new DiffUtil.ItemCallback<String>() {
+                @Override
+                public boolean areItemsTheSame(@NonNull String oldItem, @NonNull String newItem) {
+                    return oldItem.equals(newItem);
+                }
+
+                @Override
+                public boolean areContentsTheSame(@NonNull String oldItem, @NonNull String newItem) {
+                    return oldItem.equals(newItem);
+                }
+            };
+        }
+        return mTestStringItemCallback;
+    }
+    public DiffUtil.ItemCallback<CommentModel> getCommentModelItemCallback() {
+        if (mCommentModelItemCallback == null) {
+            mCommentModelItemCallback = new DiffUtil.ItemCallback<CommentModel>() {
+                @Override
+                public boolean areItemsTheSame(@NonNull CommentModel oldItem, @NonNull CommentModel newItem) {
+                    return oldItem.equals(newItem);
+                }
+
+                @Override
+                public boolean areContentsTheSame(@NonNull CommentModel oldItem, @NonNull CommentModel newItem) {
+                    return oldItem.commentId == newItem.commentId;
+                }
+            };
+        }
+        return mCommentModelItemCallback;
     }
 
 }

@@ -1,15 +1,21 @@
 package com.laozhang.project.main.home;
 
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.laozhang.project.BR;
 import com.laozhang.project.R;
+import com.laozhang.project.databinding.FragmentArticleBinding;
 import com.laozhang.project.databinding.FragmentRecommendBinding;
+import com.laozhang.project.main.adapter.ArticleAdapter;
 import com.laozhang.project.main.adapter.RecommendAdapter;
 import com.laozhang.project.main.model.RecommendModel;
+import com.laozhang.project.viewModel.ArticleViewModel;
 import com.laozhang.project.viewModel.RecommendViewModel;
 import com.shuyu.gsyvideoplayer.GSYVideoManager;
 import com.zhy.common.base.BaseFragment;
@@ -20,11 +26,10 @@ import java.util.List;
 
 /**
  * author : zhangyun.
- * date  : 2022/7/12  15:21.
+ * date  : 2022/7/15  11:38.
  * description :
  **/
-public class RecommendFragment extends BaseFragment {
-
+public class ImageFragment extends BaseFragment {
     RecommendViewModel viewModel;
     RecommendAdapter mAdapter;
     FragmentRecommendBinding binding;
@@ -46,6 +51,7 @@ public class RecommendFragment extends BaseFragment {
     protected void initViews(View view) {
         mBinding.setLifecycleOwner(this);
         binding = (FragmentRecommendBinding) mBinding;
+        initAnimation();
         refreshData();
         binding.reView.setAdapter(mAdapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
@@ -67,7 +73,7 @@ public class RecommendFragment extends BaseFragment {
                     //对应的播放列表TAG
                     if (GSYVideoManager.instance().getPlayTag().equals(RecommendAdapter.TAG)
                             && (position < firstVisibleItem || position > lastVisibleItem)) {
-                        if (GSYVideoManager.isFullState(getActivity())) {
+                        if(GSYVideoManager.isFullState(getActivity())) {
                             return;
                         }
                         //如果滑出去了上面和下面就是否，和今日头条一样
@@ -79,54 +85,33 @@ public class RecommendFragment extends BaseFragment {
         };
         binding.reView.addOnScrollListener(listener);
         binding.swLayout.setOnRefreshListener(this::refreshData);
-
-        initOnclick();
     }
 
-    /**
-     * 处理点击事件
-     */
-    private void initOnclick() {
-        mAdapter.setOnChildItemClickListener(new RecommendAdapter.OnChildItemClickListener() {
-            @Override
-            public void onItemLikeClick(View view, RecommendModel item, int position) {
-                Snackbar.make(binding.swLayout, "喜欢！", Snackbar.LENGTH_SHORT).show();
-            }
 
-            @Override
-            public void onItemUnLikeClick(View view, RecommendModel item, int position) {
-                Snackbar.make(binding.swLayout, "不喜欢！", Snackbar.LENGTH_SHORT).show();
-            }
 
-            @Override
-            public void onItemCommentClick(View view, RecommendModel item, int position) {
-                Snackbar.make(binding.swLayout, "评论！", Snackbar.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onItemShareClick(View view, RecommendModel item, int position) {
-                Snackbar.make(binding.swLayout, "转发！", Snackbar.LENGTH_SHORT).show();
-                CommentFragment.getInstance().show(getFragmentManager(),"dialog");
-            }
-        });
+    private void initAnimation() {
+        Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.inder_anim);
+        LayoutAnimationController layoutAnimationController = new LayoutAnimationController(animation);
+        layoutAnimationController.setOrder(LayoutAnimationController.ORDER_NORMAL);
+        layoutAnimationController.setDelay(0.2f);
+        binding.reView.setLayoutAnimation(layoutAnimationController);
     }
 
 
     private void refreshData() {
-        viewModel.refreshData().observe(getActivity(), listApiResponse -> {
-            if (listApiResponse == null || listApiResponse.data == null) {
-                Snackbar.make(binding.swLayout, "暂无数据！", Snackbar.LENGTH_SHORT).show();
+        viewModel.refreshImageData().observe(getActivity(), listApiResponse -> {
+            if(listApiResponse == null || listApiResponse.data == null){
+                Snackbar.make(binding.swLayout, "暂无数据！", Snackbar.LENGTH_LONG).show();
                 return;
             }
             viewModel.request.consumers.setValue(listApiResponse.data);
             binding.swLayout.setRefreshing(false);
         });
     }
-
-    private void loadData() {
-        viewModel.loadData().observe(getActivity(), listApiResponse -> {
-            if (listApiResponse == null || listApiResponse.data == null) {
-                Snackbar.make(binding.swLayout, "暂无数据！", Snackbar.LENGTH_SHORT).show();
+    private void loadData(){
+        viewModel.loadImageData().observe(getActivity(), listApiResponse -> {
+            if(listApiResponse == null || listApiResponse.data == null){
+                Snackbar.make(binding.swLayout, "暂无数据！", Snackbar.LENGTH_LONG).show();
                 return;
             }
             List<RecommendModel> oldData = viewModel.request.consumers.getValue();
@@ -135,26 +120,4 @@ public class RecommendFragment extends BaseFragment {
         });
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        GSYVideoManager.releaseAllVideos();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        GSYVideoManager.onPause();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        GSYVideoManager.onResume();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-    }
 }

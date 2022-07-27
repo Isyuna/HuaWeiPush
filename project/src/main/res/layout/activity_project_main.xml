@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <com.zhy.common.tablayout.utils.CustomViewPager
+        <com.laozhang.project.utils.ViewPagerWithLimit
             app:layout_constraintBottom_toTopOf="@+id/sliding_tab"
             android:id="@+id/view_pager"
             android:layout_width="match_parent"

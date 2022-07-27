@@ -2,6 +2,7 @@ package com.laozhang.project;
 
 import androidx.lifecycle.LiveData;
 
+import com.laozhang.project.main.model.CommentModel;
 import com.laozhang.project.main.model.ConsumerModel;
 import com.laozhang.project.main.model.RecommendModel;
 import com.zhy.common.net.ApiResponse;
@@ -11,6 +12,7 @@ import java.util.List;
 
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 /**
  * author : zhangyun.
@@ -30,4 +32,10 @@ public interface MainApi {
 
     @POST("douyin/list")
     LiveData<ApiResponse<List<RecommendModel>>> getRecommendFresh();
+
+    @POST("home/pic")
+    LiveData<ApiResponse<List<RecommendModel>>> getRecommendImage();
+
+    @POST("/jokes/comment/list")
+    LiveData<ApiResponse<List<CommentModel>>> getComment();
 }

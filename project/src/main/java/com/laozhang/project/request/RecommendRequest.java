@@ -29,4 +29,7 @@ public class RecommendRequest {
     public LiveData<ApiResponse<List<RecommendModel>>> getRecommendFresh(){
         return RetrofitManager.getInstance().create(MainApi.class).getRecommendFresh();
     }
+    public LiveData<ApiResponse<List<RecommendModel>>> getRecommendImage(){
+        return RetrofitManager.getInstance().create(MainApi.class).getRecommendImage();
+    }
 }

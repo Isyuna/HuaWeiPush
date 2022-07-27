@@ -52,7 +52,7 @@ public class HomeFragment extends BaseFragment {
         initFragment.add(new RecommendFragment());
         initFragment.add(new FreshFragment());
         initFragment.add(new ArticleFragment());
-        initFragment.add(new RecommendFragment());
+        initFragment.add(new ImageFragment());
 
         tittles.add("关注");
         tittles.add("推荐");
